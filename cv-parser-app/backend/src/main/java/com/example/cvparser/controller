@@ -1,0 +1,29 @@
+package com.example.cvparser.controller;
+
+import com.example.cvparser.model.Candidate;
+import com.example.cvparser.service.CvParserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/cv")
+public class CvController {
+
+    @Autowired
+    private CvParserService cvParserService;
+
+    @PostMapping("/upload")
+    public ResponseEntity<Candidate> uploadCv(@RequestParam("file") MultipartFile file) {
+        Candidate candidate = cvParserService.parseCv(file);
+        return ResponseEntity.ok(candidate);
+    }
+
+    @GetMapping("/candidates")
+    public ResponseEntity<List<Candidate>> getAllCandidates() {
+        List<Candidate> candidates = cvParserService.getAllCandidates();
+        return ResponseEntity.ok(candidates);
+    }
+}
