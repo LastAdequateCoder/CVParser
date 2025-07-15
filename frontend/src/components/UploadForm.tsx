@@ -3,7 +3,11 @@ import { uploadCv } from '../api/cvApi';
 import type { Candidate } from '../types/Candidate';
 import { useNavigate } from 'react-router-dom';
 
-const UploadForm: React.FC = () => {
+interface UploadFormProps {
+  onUploadSuccess?: () => void;
+}
+
+const UploadForm: React.FC<UploadFormProps> = ({ onUploadSuccess }) => {
   const fileInput = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,6 +25,7 @@ const UploadForm: React.FC = () => {
     try {
       const candidate = await uploadCv(file);
       if (fileInput.current) fileInput.current.value = '';
+      if (onUploadSuccess) onUploadSuccess();
       navigate(`/cv/${candidate.id}`);
     } catch (err: any) {
       setError(err.message || 'Upload failed');

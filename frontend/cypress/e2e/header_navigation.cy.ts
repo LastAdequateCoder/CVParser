@@ -5,6 +5,7 @@ describe('Header Navigation', () => {
     cy.get('button[type="submit"]').click();
     cy.contains('Parsed Candidate', { timeout: 10000 }).should('exist');
     cy.get('.header-title').click();
+    cy.wait(1000);
     cy.url().should('eq', Cypress.config().baseUrl + '/');
     cy.contains('Upload CV').should('exist');
   });

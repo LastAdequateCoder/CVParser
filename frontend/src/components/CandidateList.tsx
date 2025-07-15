@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react';
-import { getAllCandidates } from '../api/cvApi';
 import type { Candidate } from '../types/Candidate';
 
-const CandidateList = () => {
-  const [candidates, setCandidates] = useState<Candidate[]>([]);
-  const [error, setError] = useState<string | null>(null);
+interface CandidateListProps {
+  candidates: Candidate[];
+  refresh: () => void;
+}
 
-  useEffect(() => {
-    getAllCandidates()
-      .then(setCandidates)
-      .catch(err => setError(err.message || 'Failed to fetch candidates'));
-  }, []);
-
-  if (error) return <div style={{ color: 'red' }}>{error}</div>;
+const CandidateList = ({ candidates }: CandidateListProps) => {
   if (!candidates.length) return <div>No candidates found.</div>;
 
   return (
