@@ -137,19 +137,3 @@ npm run dev
 
 ## 🤝 Contributing
 PRs and suggestions welcome! This project is designed for learning, QA, and portfolio demonstration.
-
----
-
-## 📣 Credits
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [Cypress](https://www.cypress.io/)
-- [Playwright](https://playwright.dev/)
-- [Selenium](https://www.selenium.dev/)
-- [Cucumber](https://cucumber.io/)
-- [PDFBox](https://pdfbox.apache.org/)
-
----
-
-**Enjoy parsing CVs and showing off your QA/dev skills!** 
