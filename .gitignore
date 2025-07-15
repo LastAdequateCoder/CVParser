@@ -1,0 +1,23 @@
+# Node dependencies
+node_modules/
+frontend/node_modules/
+
+# IDE files
+.idea/
+
+# Build output
+cv-parser-app/backend/target/
+frontend/dist/
+
+# Test output
+test-results/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Misc
+.env 
